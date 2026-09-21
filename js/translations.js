@@ -229,3 +229,76 @@ const TRANSLATIONS = {
     footer_official_tag: "Official Digital Souvenir • ದೈವಜ್ಞ ಸೇವಾ ಸಂಘ, ಶ್ರೀ ಗಣೇಶ ಉತ್ಸವ ಮಂಡಳ, ಶಹಾಪುರ-ಬೆಳಗಾವಿ"
   }
 };
+
+// Expose globally
+if (typeof window !== 'undefined') {
+  window.TRANSLATIONS = TRANSLATIONS;
+
+  /**
+   * Universal Language Switcher
+   * Immediately updates all [data-i18n] elements and active button states
+   */
+  window.switchLanguage = function(lang, userTriggered = true) {
+    if (!TRANSLATIONS || !TRANSLATIONS[lang]) return;
+    window.currentAppLang = lang;
+    try {
+      localStorage.setItem('daivadnya_lang', lang);
+    } catch(e) {}
+
+    // Update document language (prevents unwanted machine translation in browsers)
+    document.documentElement.lang = lang;
+
+    // Apply translations to all data-i18n elements
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (TRANSLATIONS[lang] && TRANSLATIONS[lang][key] !== undefined) {
+        el.innerHTML = TRANSLATIONS[lang][key];
+      }
+    });
+
+    // Update all language buttons state across header and mobile drawer
+    const buttons = document.querySelectorAll('.lang-btn, .drawer-lang-btn');
+    buttons.forEach(btn => {
+      const bLang = btn.getAttribute('data-lang');
+      if (bLang === lang) {
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+      } else {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-pressed', 'false');
+      }
+    });
+
+    // Update social share URLs if available
+    if (typeof window.updateShareMetadata === 'function') {
+      try { window.updateShareMetadata(); } catch(e) {}
+    }
+
+    // Devotional toast confirmation
+    if (userTriggered && typeof window.showToast === 'function') {
+      const toasts = {
+        mr: '🌐 भाषा: मराठी निवडली आहे',
+        en: '🌐 Language: English (Official Translation)',
+        kn: '🌐 ಭಾಷೆ: ಕನ್ನಡ ಆಯ್ಕೆ ಮಾಡಲಾಗಿದೆ'
+      };
+      window.showToast(toasts[lang] || 'Language updated');
+    }
+  };
+
+  // Auto-initialize saved language as soon as DOM is ready
+  function autoInitLanguage() {
+    let saved = 'mr';
+    try {
+      saved = localStorage.getItem('daivadnya_lang') || 'mr';
+    } catch(e) {}
+    if (!TRANSLATIONS[saved]) saved = 'mr';
+    window.switchLanguage(saved, false);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', autoInitLanguage);
+  } else {
+    autoInitLanguage();
+  }
+}

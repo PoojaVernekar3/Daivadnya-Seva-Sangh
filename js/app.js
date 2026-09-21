@@ -313,72 +313,21 @@ function initMobileNavigation(flipbook) {
    ========================================================================== */
 function initLanguageSwitcher() {
   const langButtons = document.querySelectorAll('.lang-btn, .drawer-lang-btn');
-  const storedLang = localStorage.getItem('daivadnya_lang');
-  
-  // Default language is Marathi ('mr')
-  let currentLang = (storedLang && typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[storedLang]) ? storedLang : 'mr';
-
-  function applyLanguage(lang, userTriggered = false) {
-    if (typeof TRANSLATIONS === 'undefined' || !TRANSLATIONS[lang]) return;
-    currentLang = lang;
-    window.currentAppLang = lang;
-    localStorage.setItem('daivadnya_lang', lang);
-
-    // Update document lang attribute
-    document.documentElement.lang = lang;
-
-    // Apply translations to all data-i18n elements
-    const translatableElements = document.querySelectorAll('[data-i18n]');
-    translatableElements.forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (TRANSLATIONS[lang][key] !== undefined) {
-        el.innerHTML = TRANSLATIONS[lang][key];
-      }
-    });
-
-    // Update all button active states in both header and drawer
-    langButtons.forEach(btn => {
-      const btnLang = btn.getAttribute('data-lang');
-      if (btnLang === lang) {
-        btn.classList.add('active');
-        btn.setAttribute('aria-pressed', 'true');
-      } else {
-        btn.classList.remove('active');
-        btn.setAttribute('aria-pressed', 'false');
-      }
-    });
-
-    // Update share metadata
-    if (typeof updateShareMetadata === 'function') {
-      updateShareMetadata();
-    }
-
-    // Optional user feedback on click
-    if (userTriggered) {
-      const toasts = {
-        mr: '🌐 भाषा: मराठी निवडली आहे',
-        en: '🌐 Language switched to English (Official Translation)',
-        kn: '🌐 ಭಾಷೆ: ಕನ್ನಡ ಆಯ್ಕೆ ಮಾಡಲಾಗಿದೆ'
-      };
-      if (typeof showToast === 'function') {
-        showToast(toasts[lang] || 'Language updated');
-      }
-    }
-  }
-
-  // Attach click listeners to all language selector buttons
   langButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const selectedLang = btn.getAttribute('data-lang');
-      if (selectedLang && selectedLang !== currentLang) {
-        applyLanguage(selectedLang, true);
+      if (selectedLang && typeof window.switchLanguage === 'function') {
+        window.switchLanguage(selectedLang, true);
       }
     });
   });
 
-  // Apply initial language
-  applyLanguage(currentLang, false);
+  // Ensure current language is applied
+  const saved = (typeof localStorage !== 'undefined' && localStorage.getItem('daivadnya_lang')) || 'mr';
+  if (typeof window.switchLanguage === 'function') {
+    window.switchLanguage(saved, false);
+  }
 }
 
 /* ==========================================================================
@@ -434,6 +383,7 @@ function initShareFunctionality() {
     }
   };
 
+  window.updateShareMetadata = updateShareMetadata;
   updateShareMetadata();
 
   function openModal() {
@@ -550,3 +500,5 @@ function showToast(message) {
     toast.classList.remove('show');
   }, 3200);
 }
+
+window.showToast = showToast;
