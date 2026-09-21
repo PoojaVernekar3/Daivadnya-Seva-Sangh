@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // 4. Setup Toolbar Actions
   initToolbarControls(flipbook);
 
+  // 5. Setup Mobile Navigation Drawer & Hamburger Menu
+  initMobileNavigation(flipbook);
 
   // 6. Setup Share Modal & Native Share
   initShareFunctionality();
@@ -96,6 +98,7 @@ function initAmbientAudio() {
     if (audioCtx.state === 'suspended') audioCtx.resume();
 
     isPlaying = true;
+    window.isAmbientAudioPlaying = true;
     audioBtn?.classList.add('playing');
     audioBtn.setAttribute('title', 'Mute Devotional Chimes');
     showToast('🔔 Devotional Ambient Chimes Playing');
@@ -117,6 +120,7 @@ function initAmbientAudio() {
 
   function stopAmbience() {
     isPlaying = false;
+    window.isAmbientAudioPlaying = false;
     audioBtn?.classList.remove('playing');
     audioBtn.setAttribute('title', 'Play Devotional Chimes');
     if (intervalId) clearInterval(intervalId);
@@ -187,6 +191,118 @@ function initToolbarControls(flipbook) {
     }
   }
 }
+
+/* ==========================================================================
+   MOBILE NAVIGATION DRAWER & HAMBURGER CONTROLLER
+   Smooth off-canvas side sheet navigation for smartphones and tablets
+   ========================================================================== */
+function initMobileNavigation(flipbook) {
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const drawer = document.getElementById('mobileNavDrawer');
+  const backdrop = document.getElementById('mobileNavBackdrop');
+  const closeBtn = document.getElementById('closeMobileNavBtn');
+  const closeLinks = document.querySelectorAll('.mobile-link-close');
+  const thumbnailsTrigger = document.getElementById('mobileThumbnailsTrigger');
+  const mobileAudioBtn = document.getElementById('mobileAudioToggleBtn');
+  const mobileAudioBadge = document.getElementById('mobileAudioBadge');
+  const mobileAudioStatus = document.getElementById('mobileAudioStatusText');
+
+  function openDrawer() {
+    drawer?.classList.add('open');
+    backdrop?.classList.add('active');
+    hamburgerBtn?.classList.add('active');
+    hamburgerBtn?.setAttribute('aria-expanded', 'true');
+    drawer?.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    updateMobileAudioState();
+  }
+
+  function closeDrawer() {
+    drawer?.classList.remove('open');
+    backdrop?.classList.remove('active');
+    hamburgerBtn?.classList.remove('active');
+    hamburgerBtn?.setAttribute('aria-expanded', 'false');
+    drawer?.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  hamburgerBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (drawer?.classList.contains('open')) {
+      closeDrawer();
+    } else {
+      openDrawer();
+    }
+  });
+
+  closeBtn?.addEventListener('click', closeDrawer);
+  backdrop?.addEventListener('click', closeDrawer);
+
+  // Close on Escape key
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (drawer?.classList.contains('open')) closeDrawer();
+      if (flipbook?.thumbnailDrawer?.classList.contains('open')) flipbook.toggleThumbnailDrawer(false);
+    }
+  });
+
+  // Close when tapping navigation links
+  closeLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      closeDrawer();
+    });
+  });
+
+  // Thumbnails button inside mobile drawer
+  thumbnailsTrigger?.addEventListener('click', () => {
+    closeDrawer();
+    setTimeout(() => {
+      flipbook.toggleThumbnailDrawer(true);
+    }, 280);
+  });
+
+  // Mobile Audio Toggle & Sync
+  mobileAudioBtn?.addEventListener('click', () => {
+    document.getElementById('audioToggleBtn')?.click();
+    updateMobileAudioState();
+  });
+
+  function updateMobileAudioState() {
+    const isPlaying = !!window.isAmbientAudioPlaying;
+    if (mobileAudioBadge) {
+      mobileAudioBadge.textContent = isPlaying ? 'ON' : 'OFF';
+      mobileAudioBadge.classList.toggle('active', isPlaying);
+    }
+    if (mobileAudioStatus) {
+      mobileAudioStatus.textContent = isPlaying ? 'संगीत सुरू आहे (टॅप करा बंद करण्यासाठी)' : 'भक्तीमय संगीत सुरू करा';
+    }
+  }
+
+  // Sync state if audio toggled from header
+  document.getElementById('audioToggleBtn')?.addEventListener('click', () => {
+    setTimeout(updateMobileAudioState, 50);
+  });
+
+  // Thumbnail Backdrop click to close drawer
+  const thumbBackdrop = document.getElementById('thumbnailBackdrop');
+  thumbBackdrop?.addEventListener('click', () => {
+    flipbook.toggleThumbnailDrawer(false);
+  });
+
+  // Touch swipe-to-close on drawer (swipe right towards screen edge)
+  let touchStartX = 0;
+  drawer?.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+
+  drawer?.addEventListener('touchend', (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    if (touchEndX - touchStartX > 50) {
+      closeDrawer();
+    }
+  }, { passive: true });
+}
+
 
 
 /* ==========================================================================

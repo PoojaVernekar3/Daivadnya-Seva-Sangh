@@ -97,15 +97,124 @@
         </button>
 
         <!-- Download Action -->
-        <a href="assets/Aahawal Full PS.pdf" download="Daivadnya_Seva_Sangh_Shahapur_47th_Ahawal_2026-27.pdf" class="btn-gold trigger-download-pdf" style="text-decoration: none;">
+        <a href="assets/Aahawal Full PS.pdf" download="Daivadnya_Seva_Sangh_Shahapur_47th_Ahawal_2026-27.pdf" class="btn-gold trigger-download-pdf nav-download-btn" style="text-decoration: none;">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
             <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
           </svg>
           Download PDF
         </a>
+
+        <!-- Mobile Hamburger Button -->
+        <button id="hamburgerBtn" class="hamburger-btn" aria-label="Open Navigation Menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
       </div>
     </div>
   </header>
+
+  <!-- Mobile Navigation Drawer & Backdrop -->
+  <div id="mobileNavBackdrop" class="mobile-nav-backdrop" aria-hidden="true"></div>
+  <aside id="mobileNavDrawer" class="mobile-nav-drawer" aria-label="Mobile Navigation" aria-hidden="true">
+    <div class="mobile-drawer-header">
+      <div class="drawer-brand">
+        <img src="assets/logo.png" alt="दैवज्ञ सेवा संघ लोगो" class="drawer-logo-img">
+        <div class="drawer-brand-text">
+          <span class="drawer-mandal-name">दैवज्ञ सेवा संघ</span>
+          <span class="drawer-mandal-sub">श्री गणेश उत्सव मंडळ, शहापूर</span>
+        </div>
+      </div>
+      <button id="closeMobileNavBtn" class="drawer-close-btn" aria-label="Close Navigation Menu">&times;</button>
+    </div>
+
+    <div class="mobile-drawer-body">
+      <div class="drawer-section-title">नेव्हिगेशन / Navigation</div>
+      <ul class="mobile-drawer-links">
+        <li>
+          <a href="#readerSection" class="drawer-nav-item mobile-link-close">
+            <span class="drawer-nav-icon">📖</span>
+            <div class="drawer-nav-info">
+              <span class="drawer-nav-title">Digital Hawal Book</span>
+              <span class="drawer-nav-desc">१९६ पाने 3D फ्लिपबुक वाचन</span>
+            </div>
+            <svg class="drawer-nav-arrow" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="#downloadSection" class="drawer-nav-item mobile-link-close">
+            <span class="drawer-nav-icon">📥</span>
+            <div class="drawer-nav-info">
+              <span class="drawer-nav-title">Download Official PDF</span>
+              <span class="drawer-nav-desc">संपूर्ण अहवाल डाउनलोड करा (60 MB)</span>
+            </div>
+            <svg class="drawer-nav-arrow" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+          </a>
+        </li>
+        <li>
+          <button id="mobileThumbnailsTrigger" class="drawer-nav-item drawer-btn-item">
+            <span class="drawer-nav-icon">🖼️</span>
+            <div class="drawer-nav-info">
+              <span class="drawer-nav-title">Page Thumbnails</span>
+              <span class="drawer-nav-desc">सर्व पानांची सूची / Overview</span>
+            </div>
+            <svg class="drawer-nav-arrow" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+          </button>
+        </li>
+        <li>
+          <button class="drawer-nav-item drawer-btn-item trigger-share-modal mobile-link-close">
+            <span class="drawer-nav-icon">📤</span>
+            <div class="drawer-nav-info">
+              <span class="drawer-nav-title">Share Hawal Book</span>
+              <span class="drawer-nav-desc">WhatsApp / सोशल मीडियावर शेअर करा</span>
+            </div>
+            <svg class="drawer-nav-arrow" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+          </button>
+        </li>
+        <li>
+          <button id="mobileAudioToggleBtn" class="drawer-nav-item drawer-btn-item">
+            <span class="drawer-nav-icon">🔔</span>
+            <div class="drawer-nav-info">
+              <span class="drawer-nav-title">Temple Bells & Chimes</span>
+              <span id="mobileAudioStatusText" class="drawer-nav-desc">भक्तीमय संगीत सुरू करा</span>
+            </div>
+            <span id="mobileAudioBadge" class="drawer-badge-pill">OFF</span>
+          </button>
+        </li>
+      </ul>
+
+      <!-- Quick Actions CTA -->
+      <div class="mobile-drawer-cta">
+        <a href="assets/Aahawal Full PS.pdf" download="Daivadnya_Seva_Sangh_Shahapur_47th_Ahawal_2026-27.pdf" class="btn-gold drawer-cta-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+          Download PDF (60 MB)
+        </a>
+      </div>
+
+      <!-- Mandal Contacts with Direct Tap-to-Call -->
+      <div class="mobile-drawer-contact">
+        <div class="drawer-section-title">संपर्क व कार्यालय / Mandal Office</div>
+        <p class="drawer-contact-row">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <span>Daivadnya Mangala Karyalaya, Mahatma Phule Road, Shahapur, Belagavi - 590003</span>
+        </p>
+        <div class="drawer-call-buttons">
+          <a href="tel:+918313566962" class="drawer-call-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.44-5.15-3.75-6.59-6.59l1.97-1.57c.23-.23.3-.57.24-1.01-.36-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3.3 3 3.65 3 4.19c0 9.38 7.63 17 17.01 17 .54 0 .99-.65.99-1.19v-3.63c0-.54-.45-.99-.99-.99z"/></svg>
+            0831 356 6962
+          </a>
+          <a href="tel:+919538744408" class="drawer-call-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.44-5.15-3.75-6.59-6.59l1.97-1.57c.23-.23.3-.57.24-1.01-.36-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3.3 3 3.65 3 4.19c0 9.38 7.63 17 17.01 17 .54 0 .99-.65.99-1.19v-3.63c0-.54-.45-.99-.99-.99z"/></svg>
+            95387 44408
+          </a>
+        </div>
+      </div>
+
+      <div class="drawer-footer-blessing">
+        || श्री गणेशाय नमः • गणपती बाप्पा मोरया ||
+      </div>
+    </div>
+  </aside>
 
   <!-- Hero Section -->
   <section class="hero-banner">
@@ -191,8 +300,9 @@
     </div>
   </main>
 
-  <!-- Thumbnail Drawer Sheet (Slide Up) -->
-  <aside id="thumbnailDrawer" class="thumbnail-drawer">
+  <!-- Thumbnail Drawer Sheet (Slide Up) & Backdrop -->
+  <div id="thumbnailBackdrop" class="thumbnail-backdrop" aria-hidden="true"></div>
+  <aside id="thumbnailDrawer" class="thumbnail-drawer" aria-label="Thumbnail Drawer">
     <div class="drawer-header">
       <h3 class="drawer-title">स्मरणिका पृष्ठ सूची / All Pages Overview</h3>
       <button id="closeThumbnailsBtn" class="drawer-close-btn" title="Close Drawer">&times;</button>

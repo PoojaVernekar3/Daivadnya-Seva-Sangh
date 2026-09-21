@@ -358,6 +358,10 @@ class HawalFlipbook {
     if (!this.thumbnailDrawer) return;
     const shouldOpen = open !== undefined ? open : !this.thumbnailDrawer.classList.contains('open');
     this.thumbnailDrawer.classList.toggle('open', shouldOpen);
+    const backdrop = document.getElementById('thumbnailBackdrop');
+    if (backdrop) {
+      backdrop.classList.toggle('active', shouldOpen);
+    }
     if (shouldOpen) {
       const activeCard = this.thumbnailsTrack.querySelector(`.thumb-card[data-page="${this.currentPage}"]`);
       if (activeCard) {
