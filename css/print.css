@@ -1,0 +1,80 @@
+/* ==========================================================================
+   PRINT / PDF EXPORT STYLESHEET
+   Daivadnya Ganesh Utsav Mandal, Belgaum - Digital Hawal Book
+   ========================================================================== */
+
+@media print {
+  body {
+    background: #FFF !important;
+    color: #000 !important;
+    font-size: 11pt;
+  }
+
+  .site-header,
+  .temple-top-garland,
+  .hero-banner,
+  .reader-toolbar,
+  .book-nav-arrow,
+  .directory-section,
+  .download-section,
+  .modal-backdrop,
+  .thumbnail-drawer,
+  .site-footer,
+  .toast-notice,
+  .loading-screen {
+    display: none !important;
+  }
+
+  .reader-wrapper {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .flipbook-container {
+    perspective: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .flipbook-container::after {
+    display: none !important;
+  }
+
+  .book-stage {
+    width: 100% !important;
+    height: auto !important;
+    box-shadow: none !important;
+    display: block !important;
+  }
+
+  .book-page-slot {
+    width: 100% !important;
+    height: 100vh !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  .page-inner-container {
+    height: 100% !important;
+    padding: 24pt !important;
+    overflow: visible !important;
+  }
+
+  .cover-page-layout,
+  .backcover-layout {
+    background: #4A1005 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #FFF !important;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 10mm;
+  }
+}

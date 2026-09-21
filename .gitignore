@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Temporary inspection & render scratch files
+scripts/*.png
+scripts/*.jpg
+scripts/*.pdf
+assets/*backup*.pdf
+assets/test*.pdf
+
+# IDE & OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
