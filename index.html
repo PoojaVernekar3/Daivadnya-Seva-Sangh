@@ -62,8 +62,8 @@
           <img src="assets/logo.png" alt="दैवज्ञ सेवा संघ, श्री गणेश उत्सव मंडळ लोगो" class="mandal-logo-img">
         </div>
         <div class="branding-text">
-          <span class="official-mandal-name">दैवज्ञ सेवा संघ, श्री गणेश उत्सव मंडळ</span>
-          <span class="mandal-subtext">शहापूर - बेळगांव • ४७ वा अहवाल २०२६-२७ (196 Pages)</span>
+          <span class="official-mandal-name notranslate" data-i18n="header_mandal_name">दैवज्ञ सेवा संघ, श्री गणेश उत्सव मंडळ</span>
+          <span class="mandal-subtext notranslate" data-i18n="header_mandal_sub">शहापूर - बेळगांव • ४७ वा अहवाल २०२६-२७ (196 Pages)</span>
         </div>
       </a>
 
@@ -71,16 +71,23 @@
       <nav class="header-nav">
         <a href="#readerSection" class="nav-link-btn">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
-          Hawal Reader
+          <span data-i18n="nav_reader">Hawal Reader</span>
         </a>
         <a href="#downloadSection" class="nav-link-btn">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-          Download PDF
+          <span data-i18n="nav_download">Download PDF</span>
         </a>
       </nav>
 
       <!-- Header Action Buttons -->
       <div class="nav-actions">
+        <!-- Language Switcher Bar -->
+        <div class="lang-switch-bar" role="group" aria-label="Language Selector">
+          <button type="button" class="lang-btn active" data-lang="mr" title="मराठी">मराठी</button>
+          <button type="button" class="lang-btn" data-lang="en" title="English">English</button>
+          <button type="button" class="lang-btn" data-lang="kn" title="ಕನ್ನಡ">ಕನ್ನಡ</button>
+        </div>
+
         <!-- Devotional Audio Toggle -->
         <button id="audioToggleBtn" class="audio-toggle-btn" title="Play Devotional Temple Chimes">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -93,7 +100,7 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
             <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
           </svg>
-          Share
+          <span data-i18n="btn_share">Share</span>
         </button>
 
         <!-- Download Action -->
@@ -101,7 +108,7 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
             <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
           </svg>
-          Download PDF
+          <span data-i18n="btn_download">Download PDF</span>
         </a>
 
         <!-- Mobile Hamburger Button -->
@@ -121,22 +128,32 @@
       <div class="drawer-brand">
         <img src="assets/logo.png" alt="दैवज्ञ सेवा संघ लोगो" class="drawer-logo-img">
         <div class="drawer-brand-text">
-          <span class="drawer-mandal-name">दैवज्ञ सेवा संघ</span>
-          <span class="drawer-mandal-sub">श्री गणेश उत्सव मंडळ, शहापूर</span>
+          <span class="drawer-mandal-name notranslate" data-i18n="drawer_mandal_name">दैवज्ञ सेवा संघ</span>
+          <span class="drawer-mandal-sub notranslate" data-i18n="drawer_mandal_sub">श्री गणेश उत्सव मंडळ, शहापूर-बेळगांव</span>
         </div>
       </div>
       <button id="closeMobileNavBtn" class="drawer-close-btn" aria-label="Close Navigation Menu">&times;</button>
     </div>
 
     <div class="mobile-drawer-body">
-      <div class="drawer-section-title">नेव्हिगेशन / Navigation</div>
+      <!-- Mobile Language Switcher -->
+      <div class="drawer-lang-box">
+        <span class="drawer-lang-title">भाषा निवडा / Select Language</span>
+        <div class="drawer-lang-buttons">
+          <button type="button" class="drawer-lang-btn active" data-lang="mr">मराठी</button>
+          <button type="button" class="drawer-lang-btn" data-lang="en">English</button>
+          <button type="button" class="drawer-lang-btn" data-lang="kn">ಕನ್ನಡ</button>
+        </div>
+      </div>
+
+      <div class="drawer-section-title" data-i18n="drawer_nav_heading">नेव्हिगेशन / Navigation</div>
       <ul class="mobile-drawer-links">
         <li>
           <a href="#readerSection" class="drawer-nav-item mobile-link-close">
             <span class="drawer-nav-icon">📖</span>
             <div class="drawer-nav-info">
-              <span class="drawer-nav-title">Digital Hawal Book</span>
-              <span class="drawer-nav-desc">१९६ पाने 3D फ्लिपबुक वाचन</span>
+              <span class="drawer-nav-title" data-i18n="drawer_link_reader_title">Digital Hawal Book</span>
+              <span class="drawer-nav-desc" data-i18n="drawer_link_reader_desc">१९६ पाने 3D फ्लिपबुक वाचन</span>
             </div>
             <svg class="drawer-nav-arrow" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
           </a>
@@ -145,8 +162,8 @@
           <a href="#downloadSection" class="drawer-nav-item mobile-link-close">
             <span class="drawer-nav-icon">📥</span>
             <div class="drawer-nav-info">
-              <span class="drawer-nav-title">Download Official PDF</span>
-              <span class="drawer-nav-desc">संपूर्ण अहवाल डाउनलोड करा (60 MB)</span>
+              <span class="drawer-nav-title" data-i18n="drawer_link_pdf_title">Download Official PDF</span>
+              <span class="drawer-nav-desc" data-i18n="drawer_link_pdf_desc">संपूर्ण अहवाल डाउनलोड करा (60 MB)</span>
             </div>
             <svg class="drawer-nav-arrow" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
           </a>
@@ -155,8 +172,8 @@
           <button id="mobileThumbnailsTrigger" class="drawer-nav-item drawer-btn-item">
             <span class="drawer-nav-icon">🖼️</span>
             <div class="drawer-nav-info">
-              <span class="drawer-nav-title">Page Thumbnails</span>
-              <span class="drawer-nav-desc">सर्व पानांची सूची / Overview</span>
+              <span class="drawer-nav-title" data-i18n="drawer_link_thumbs_title">Page Thumbnails</span>
+              <span class="drawer-nav-desc" data-i18n="drawer_link_thumbs_desc">सर्व पानांची सूची / Overview</span>
             </div>
             <svg class="drawer-nav-arrow" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
           </button>
@@ -165,8 +182,8 @@
           <button class="drawer-nav-item drawer-btn-item trigger-share-modal mobile-link-close">
             <span class="drawer-nav-icon">📤</span>
             <div class="drawer-nav-info">
-              <span class="drawer-nav-title">Share Hawal Book</span>
-              <span class="drawer-nav-desc">WhatsApp / सोशल मीडियावर शेअर करा</span>
+              <span class="drawer-nav-title" data-i18n="drawer_link_share_title">Share Hawal Book</span>
+              <span class="drawer-nav-desc" data-i18n="drawer_link_share_desc">WhatsApp / सोशल मीडियावर शेअर करा</span>
             </div>
             <svg class="drawer-nav-arrow" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
           </button>
@@ -175,8 +192,8 @@
           <button id="mobileAudioToggleBtn" class="drawer-nav-item drawer-btn-item">
             <span class="drawer-nav-icon">🔔</span>
             <div class="drawer-nav-info">
-              <span class="drawer-nav-title">Temple Bells & Chimes</span>
-              <span id="mobileAudioStatusText" class="drawer-nav-desc">भक्तीमय संगीत सुरू करा</span>
+              <span class="drawer-nav-title" data-i18n="drawer_link_audio_title">Temple Bells & Chimes</span>
+              <span id="mobileAudioStatusText" class="drawer-nav-desc" data-i18n="drawer_link_audio_desc">भक्तीमय संगीत सुरू करा</span>
             </div>
             <span id="mobileAudioBadge" class="drawer-badge-pill">OFF</span>
           </button>
@@ -187,16 +204,16 @@
       <div class="mobile-drawer-cta">
         <a href="assets/Aahawal Full PS.pdf" download="Daivadnya_Seva_Sangh_Shahapur_47th_Ahawal_2026-27.pdf" class="btn-gold drawer-cta-btn">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-          Download PDF (60 MB)
+          <span data-i18n="download_btn_main">Download PDF (60 MB)</span>
         </a>
       </div>
 
       <!-- Mandal Contacts with Direct Tap-to-Call -->
       <div class="mobile-drawer-contact">
-        <div class="drawer-section-title">संपर्क व कार्यालय / Mandal Office</div>
+        <div class="drawer-section-title" data-i18n="drawer_office_heading">संपर्क व कार्यालय / Mandal Office</div>
         <p class="drawer-contact-row">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          <span>Daivadnya Mangala Karyalaya, Mahatma Phule Road, Shahapur, Belagavi - 590003</span>
+          <span data-i18n="footer_office_address">Daivadnya Mangala Karyalaya, Mahatma Phule Road, Shahapur, Belagavi - 590003</span>
         </p>
         <div class="drawer-call-buttons">
           <a href="tel:+918313566962" class="drawer-call-btn">
@@ -210,7 +227,7 @@
         </div>
       </div>
 
-      <div class="drawer-footer-blessing">
+      <div class="drawer-footer-blessing notranslate" data-i18n="drawer_blessing">
         || श्री गणेशाय नमः • गणपती बाप्पा मोरया ||
       </div>
     </div>
@@ -221,17 +238,17 @@
     <div class="hero-logo-badge">
       <img src="assets/logo.png" alt="दैवज्ञ सेवा संघ, श्री गणेश उत्सव मंडळ लोगो" class="hero-logo-img">
     </div>
-    <div class="devotional-ribbon">
+    <div class="devotional-ribbon notranslate" data-i18n="hero_ribbon">
       <span>✦</span> || श्री गणेशाय नमः || ४७ वा वार्षिक अहवाल २०२६-२७ <span>✦</span>
     </div>
-    <h1 class="hero-main-title">दैवज्ञ सेवा संघ, श्री गणेश उत्सव मंडळ, शहापूर-बेळगांव</h1>
-    <p class="hero-subtitle">४७ वा वार्षिक अहवाल स्मरणिका व जाहिरात पुस्तिका • Official 196-Page Souvenir & Hawal Book</p>
+    <h1 class="hero-main-title notranslate" data-i18n="hero_title">दैवज्ञ सेवा संघ, श्री गणेश उत्सव मंडळ, शहापूर-बेळगांव</h1>
+    <p class="hero-subtitle notranslate" data-i18n="hero_subtitle">४७ वा वार्षिक अहवाल स्मरणिका व जाहिरात पुस्तिका • Official 196-Page Souvenir & Hawal Book</p>
     
     <div class="hero-tagline-pills">
-      <span class="tagline-pill">✨ ४७ वर्षांची गौरवशाली परंपरा</span>
-      <span class="tagline-pill">📖 संपूर्ण १९६ पानांचे 3D Flipbook</span>
-      <span class="tagline-pill">💎 बेळगाव, शहापूर व परिसरातील नामांकित सुवर्णकार</span>
-      <span class="tagline-pill">🏛️ शहापूर - बेळगांव, कर्नाटक</span>
+      <span class="tagline-pill notranslate" data-i18n="hero_pill_heritage">✨ ४७ वर्षांची गौरवशाली परंपरा</span>
+      <span class="tagline-pill notranslate" data-i18n="hero_pill_pages">📖 संपूर्ण १९६ पानांचे 3D Flipbook</span>
+      <span class="tagline-pill notranslate" data-i18n="hero_pill_jewellers">💎 बेळगाव, शहापूर व परिसरातील नामांकित सुवर्णकार</span>
+      <span class="tagline-pill notranslate" data-i18n="hero_pill_location">🏛️ शहापूर - बेळगांव, कर्नाटक</span>
     </div>
   </section>
 
@@ -244,18 +261,18 @@
       <div class="toolbar-group">
         <button id="prevPageBtn" class="tool-btn" title="Previous Page (Left Arrow)">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-          Prev
+          <span data-i18n="toolbar_prev">Prev</span>
         </button>
         <span id="pageIndicator" class="page-indicator-badge">Cover (Page 1)</span>
         <button id="nextPageBtn" class="tool-btn" title="Next Page (Right Arrow)">
-          Next
+          <span data-i18n="toolbar_next">Next</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
         </button>
       </div>
 
       <!-- Quick Jump Dropdown -->
       <div class="toolbar-group">
-        <label for="pageJumpSelect" style="font-size: 0.82rem; color: var(--text-muted);">Jump:</label>
+        <label for="pageJumpSelect" style="font-size: 0.82rem; color: var(--text-muted);" data-i18n="toolbar_jump_label">Jump:</label>
         <select id="pageJumpSelect" class="page-jump-select" aria-label="Jump to page"></select>
       </div>
 
@@ -263,7 +280,7 @@
       <div class="toolbar-group">
         <button id="toggleThumbnailsBtn" class="tool-btn" title="Page Thumbnails Overview">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 11h5V5H4v6zm0 7h5v-6H4v6zm6 0h5v-6h-5v6zm6 0h5v-6h-5v6zm-6-7h5V5h-5v6zm6-6v6h5V5h-5z"/></svg>
-          Thumbnails
+          <span data-i18n="toolbar_thumbnails">Thumbnails</span>
         </button>
         <button id="zoomInBtn" class="tool-btn" title="Zoom In">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zm.5-7H9v2H7v1h2v2h1v-2h2V9h-2z"/></svg>
@@ -271,7 +288,9 @@
         <button id="zoomOutBtn" class="tool-btn" title="Zoom Out">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM7 9h5v1H7z"/></svg>
         </button>
-        <button id="zoomResetBtn" class="tool-btn" title="Reset Zoom">Reset</button>
+        <button id="zoomResetBtn" class="tool-btn" title="Reset Zoom">
+          <span data-i18n="toolbar_reset">Reset</span>
+        </button>
         <button id="bookmarkBtn" class="tool-btn" title="Bookmark This Page">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>
         </button>
@@ -304,7 +323,7 @@
   <div id="thumbnailBackdrop" class="thumbnail-backdrop" aria-hidden="true"></div>
   <aside id="thumbnailDrawer" class="thumbnail-drawer" aria-label="Thumbnail Drawer">
     <div class="drawer-header">
-      <h3 class="drawer-title">स्मरणिका पृष्ठ सूची / All Pages Overview</h3>
+      <h3 class="drawer-title" data-i18n="thumb_drawer_title">स्मरणिका पृष्ठ सूची / All Pages Overview</h3>
       <button id="closeThumbnailsBtn" class="drawer-close-btn" title="Close Drawer">&times;</button>
     </div>
     <div id="thumbnailsTrack" class="thumbnails-track"></div>
@@ -314,16 +333,16 @@
   <section id="downloadSection" class="download-section">
     <div class="download-banner-card">
       <div class="download-info">
-        <span class="download-badge">अधिकृत डिजिटल आवृत्ती व संग्रहण</span>
-        <h2 class="download-title">दैवज्ञ सेवा संघ, श्री गणेश उत्सव मंडळ, शहापूर-बेळगांव</h2>
-        <p class="download-desc">
+        <span class="download-badge" data-i18n="download_badge">अधिकृत डिजिटल आवृत्ती व संग्रहण</span>
+        <h2 class="download-title notranslate" data-i18n="download_title">दैवज्ञ सेवा संघ, श्री गणेश उत्सव मंडळ, शहापूर-बेळगांव</h2>
+        <p class="download-desc" data-i18n="download_desc">
           Download the complete official 47th Ahawal (२०२६-२७) Souvenir & Advertisement Book (196 Pages) in high-definition print quality for offline reading, family keepsakes, and business networking across Belgaum.
         </p>
         <ul class="download-features-list">
-          <li class="download-feature-item">✓ Complete 196-Page Full Print Edition</li>
-          <li class="download-feature-item">✓ Official 98.3 MB PDF Archive</li>
-          <li class="download-feature-item">✓ High-Resolution Jewellery & Business Ads</li>
-          <li class="download-feature-item">✓ 100% Free Public Community Access</li>
+          <li class="download-feature-item" data-i18n="download_feat_1">✓ Complete 196-Page Full Print Edition</li>
+          <li class="download-feature-item" data-i18n="download_feat_2">✓ Official 60 MB PDF Archive</li>
+          <li class="download-feature-item" data-i18n="download_feat_3">✓ High-Resolution Jewellery & Business Ads</li>
+          <li class="download-feature-item" data-i18n="download_feat_4">✓ 100% Free Public Community Access</li>
         </ul>
       </div>
 
@@ -332,13 +351,13 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
             <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
           </svg>
-          Download Complete 196-Page PDF (98 MB)
+          <span data-i18n="download_btn_main">Download Official PDF (60 MB)</span>
         </a>
         <button class="btn-outline-gold trigger-share-modal">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
             <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
           </svg>
-          Share with Friends & Family
+          <span data-i18n="btn_share">Share with Friends & Family</span>
         </button>
       </div>
     </div>
@@ -350,15 +369,15 @@
       <button id="closeShareModalBtn" class="modal-close-btn" aria-label="Close modal">&times;</button>
       
       <div class="modal-header">
-        <h3 id="shareModalTitle" class="modal-title">Share Digital Hawal Book</h3>
-        <p class="modal-desc">Share with community members, devotees, and patrons</p>
+        <h3 id="shareModalTitle" class="modal-title" data-i18n="share_modal_title">Share Digital Hawal Book</h3>
+        <p class="modal-desc" data-i18n="share_modal_desc">Share with community members, devotees, and patrons</p>
       </div>
 
       <!-- Preview of official share copy -->
       <div class="share-preview-card">
-        <span class="preview-badge">Official Share Message</span>
-        <div class="share-official-title">दैवज्ञ सेवा संघ, श्री गणेश उत्सव मंडळ, शहापूर-बेळगांव – ४७ वा अहवाल</div>
-        <div class="share-official-desc">Explore the official 196-page 47th Ahawal (२०२६-२७) Souvenir Book of Daivadnya Seva Sangh, Shree Ganesh Utsav Mandal, Shahapur-Belgaum.</div>
+        <span class="preview-badge" data-i18n="share_card_badge">Official Share Message</span>
+        <div class="share-official-title notranslate" data-i18n="share_official_title">दैवज्ञ सेवा संघ, श्री गणेश उत्सव मंडळ, शहापूर-बेळगांव – ४७ वा अहवाल</div>
+        <div class="share-official-desc notranslate" data-i18n="share_official_desc">Explore the official 196-page 47th Ahawal (२०२६-२७) Souvenir Book of Daivadnya Seva Sangh, Shree Ganesh Utsav Mandal, Shahapur-Belgaum.</div>
       </div>
 
       <!-- Direct Social Channels -->
@@ -384,7 +403,7 @@
       <!-- Copy Direct Link Box -->
       <div class="copy-link-box">
         <input type="text" id="shareLinkInput" class="copy-link-input" readonly aria-label="Share Link">
-        <button id="copyShareLinkBtn" class="btn-gold">Copy</button>
+        <button id="copyShareLinkBtn" class="btn-gold" data-i18n="share_copy_btn">Copy Link</button>
       </div>
     </div>
   </div>
@@ -396,32 +415,32 @@
         <div class="footer-brand-header">
           <img src="assets/logo.png" alt="दैवज्ञ सेवा संघ लोगो" class="footer-logo-img">
           <div>
-            <h3 class="footer-mandal-name">दैवज्ञ सेवा संघ, श्री गणेश उत्सव मंडळ</h3>
-            <span class="footer-mandal-location">शहापूर - बेळगांव</span>
+            <h3 class="footer-mandal-name notranslate" data-i18n="footer_mandal_name">दैवज्ञ सेवा संघ, श्री गणेश उत्सव मंडळ</h3>
+            <span class="footer-mandal-location notranslate" data-i18n="footer_mandal_location">शहापूर - बेळगांव</span>
           </div>
         </div>
-        <p class="footer-desc">
+        <p class="footer-desc" data-i18n="footer_desc">
           शहापूर - बेळगांव. Established to preserve cultural roots, celebrate the sacred Ganesh festival, and advance the community welfare and education across Shahapur, Vadgaon, Tilakwadi and Belgaum.
         </p>
-        <p style="color: var(--color-marigold); font-size: 0.92rem; font-weight: 600; margin-top: 8px;">
+        <p class="notranslate" style="color: var(--color-marigold); font-size: 0.92rem; font-weight: 600; margin-top: 8px;" data-i18n="footer_mantra">
           || श्री गणेशाय नमः • गणपती बाप्पा मोरया ||
         </p>
       </div>
 
       <div>
-        <h4 class="footer-heading">Quick Links</h4>
+        <h4 class="footer-heading" data-i18n="footer_quick_links_title">Quick Links</h4>
         <ul class="footer-links-list">
-          <li><a href="#readerSection" class="footer-link">Digital Hawal Book (196 P.)</a></li>
-          <li><a href="#downloadSection" class="footer-link">Official PDF Download (98 MB)</a></li>
-          <li><a href="#" class="footer-link trigger-share-modal">Share Hawal Book</a></li>
+          <li><a href="#readerSection" class="footer-link" data-i18n="footer_link_reader">Digital Hawal Book (196 P.)</a></li>
+          <li><a href="#downloadSection" class="footer-link" data-i18n="footer_link_pdf">Official PDF Download (60 MB)</a></li>
+          <li><a href="#" class="footer-link trigger-share-modal" data-i18n="footer_link_share">Share Hawal Book</a></li>
         </ul>
       </div>
 
       <div>
-        <h4 class="footer-heading">Mandal Office</h4>
+        <h4 class="footer-heading" data-i18n="footer_office_title">Mandal Office</h4>
         <div class="footer-contact-item">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          <span>Daivadnya Mangala Karyalaya, Mahatma Phule Road, Shahapur, Belagavi - 590003</span>
+          <span data-i18n="footer_office_address">Daivadnya Mangala Karyalaya, Mahatma Phule Road, Shahapur, Belagavi - 590003</span>
         </div>
         <div class="footer-contact-item">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.44-5.15-3.75-6.59-6.59l1.97-1.57c.23-.23.3-.57.24-1.01-.36-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3.3 3 3.65 3 4.19c0 9.38 7.63 17 17.01 17 .54 0 .99-.65.99-1.19v-3.63c0-.54-.45-.99-.99-.99z"/></svg>
@@ -429,14 +448,14 @@
         </div>
         <div class="footer-contact-item">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          <span>President: Sri Manoj D. Kolvekar | Secretary: Sri Sudhir S. Vernekar</span>
+          <span data-i18n="footer_office_bearers">President: Sri Manoj D. Kolvekar | Secretary: Sri Sudhir S. Vernekar</span>
         </div>
       </div>
     </div>
 
     <div class="footer-bottom">
       <div>
-        Official Digital Souvenir &bull; <span class="footer-official-tag">दैवज्ञ सेवा संघ, श्री गणेश उत्सव मंडळ, शहापूर-बेळगांव</span>
+        Official Digital Souvenir &bull; <span class="footer-official-tag notranslate" data-i18n="footer_official_tag">दैवज्ञ सेवा संघ, श्री गणेश उत्सव मंडळ, शहापूर-बेळगांव</span>
       </div>
       <div>
         &copy; 2026 All Rights Reserved. ४७ वा अहवाल २०२६-२७.
@@ -445,6 +464,7 @@
   </footer>
 
   <!-- Core Scripts -->
+  <script src="js/translations.js"></script>
   <script src="js/book-data.js"></script>
   <script src="js/flipbook.js"></script>
   <script src="js/app.js"></script>

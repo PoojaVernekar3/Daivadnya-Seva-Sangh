@@ -23,10 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // 5. Setup Mobile Navigation Drawer & Hamburger Menu
   initMobileNavigation(flipbook);
 
-  // 6. Setup Share Modal & Native Share
+  // 6. Setup Multi-Language Switcher (Marathi, English, Kannada)
+  initLanguageSwitcher();
+
+  // 7. Setup Share Modal & Native Share
   initShareFunctionality();
 
-  // 7. Setup PDF Download / Print
+  // 8. Setup PDF Download / Print
   initDownloadActions();
 });
 
@@ -306,10 +309,83 @@ function initMobileNavigation(flipbook) {
 
 
 /* ==========================================================================
-   SHARE MODAL & NATIVE SHARING CONTROLLER
-   Official Share Title: Daivadnya Ganesh Utsav Mandal, Belgaum – Digital Hawal Book
-   Official Description: Explore the digital Hawal/advertisement book of Daivadnya Ganesh Utsav Mandal, Belgaum.
+   LANGUAGE SWITCHER (MARATHI, ENGLISH, KANNADA)
    ========================================================================== */
+function initLanguageSwitcher() {
+  const langButtons = document.querySelectorAll('.lang-btn, .drawer-lang-btn');
+  const storedLang = localStorage.getItem('daivadnya_lang');
+  
+  // Default language is Marathi ('mr')
+  let currentLang = (storedLang && typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[storedLang]) ? storedLang : 'mr';
+
+  function applyLanguage(lang, userTriggered = false) {
+    if (typeof TRANSLATIONS === 'undefined' || !TRANSLATIONS[lang]) return;
+    currentLang = lang;
+    window.currentAppLang = lang;
+    localStorage.setItem('daivadnya_lang', lang);
+
+    // Update document lang attribute
+    document.documentElement.lang = lang;
+
+    // Apply translations to all data-i18n elements
+    const translatableElements = document.querySelectorAll('[data-i18n]');
+    translatableElements.forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (TRANSLATIONS[lang][key] !== undefined) {
+        el.innerHTML = TRANSLATIONS[lang][key];
+      }
+    });
+
+    // Update all button active states in both header and drawer
+    langButtons.forEach(btn => {
+      const btnLang = btn.getAttribute('data-lang');
+      if (btnLang === lang) {
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+      } else {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-pressed', 'false');
+      }
+    });
+
+    // Update share metadata
+    if (typeof updateShareMetadata === 'function') {
+      updateShareMetadata();
+    }
+
+    // Optional user feedback on click
+    if (userTriggered) {
+      const toasts = {
+        mr: '🌐 भाषा: मराठी निवडली आहे',
+        en: '🌐 Language switched to English (Official Translation)',
+        kn: '🌐 ಭಾಷೆ: ಕನ್ನಡ ಆಯ್ಕೆ ಮಾಡಲಾಗಿದೆ'
+      };
+      if (typeof showToast === 'function') {
+        showToast(toasts[lang] || 'Language updated');
+      }
+    }
+  }
+
+  // Attach click listeners to all language selector buttons
+  langButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const selectedLang = btn.getAttribute('data-lang');
+      if (selectedLang && selectedLang !== currentLang) {
+        applyLanguage(selectedLang, true);
+      }
+    });
+  });
+
+  // Apply initial language
+  applyLanguage(currentLang, false);
+}
+
+/* ==========================================================================
+   SHARE MODAL & NATIVE SHARING CONTROLLER
+   ========================================================================== */
+let updateShareMetadata = null;
+
 function initShareFunctionality() {
   const shareModal = document.getElementById('shareModal');
   const openShareBtns = document.querySelectorAll('.trigger-share-modal');
@@ -317,18 +393,51 @@ function initShareFunctionality() {
   const copyLinkBtn = document.getElementById('copyShareLinkBtn');
   const shareLinkInput = document.getElementById('shareLinkInput');
 
-  const shareData = {
-    title: MANDAL_CONFIG.shareTitle,
-    text: MANDAL_CONFIG.shareDescription,
-    url: window.location.href
-  };
-
-  // Set input value
-  if (shareLinkInput) {
-    shareLinkInput.value = window.location.href;
+  function getShareData() {
+    const lang = window.currentAppLang || 'mr';
+    const t = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[lang]) ? TRANSLATIONS[lang] : {};
+    return {
+      title: t.share_official_title || (typeof MANDAL_CONFIG !== 'undefined' ? MANDAL_CONFIG.shareTitle : 'दैवज्ञ सेवा संघ, श्री गणेश उत्सव मंडळ, शहापूर-बेळगांव'),
+      text: t.share_official_desc || (typeof MANDAL_CONFIG !== 'undefined' ? MANDAL_CONFIG.shareDescription : 'Explore 47th Ahawal Book'),
+      url: window.location.href
+    };
   }
 
+  // Function to refresh social URLs whenever opened or language changed
+  updateShareMetadata = function() {
+    const currentData = getShareData();
+    if (shareLinkInput) {
+      shareLinkInput.value = currentData.url;
+    }
+
+    const encodedText = encodeURIComponent(`${currentData.title}\n\n${currentData.text}\n\n${currentData.url}`);
+    const encodedUrl = encodeURIComponent(currentData.url);
+
+    const whatsappBtn = document.getElementById('shareWhatsAppBtn');
+    if (whatsappBtn) {
+      whatsappBtn.href = `https://api.whatsapp.com/send?text=${encodedText}`;
+    }
+
+    const facebookBtn = document.getElementById('shareFacebookBtn');
+    if (facebookBtn) {
+      facebookBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+    }
+
+    const twitterBtn = document.getElementById('shareTwitterBtn');
+    if (twitterBtn) {
+      twitterBtn.href = `https://twitter.com/intent/tweet?text=${encodedText}`;
+    }
+
+    const telegramBtn = document.getElementById('shareTelegramBtn');
+    if (telegramBtn) {
+      telegramBtn.href = `https://t.me/share/url?url=${encodedUrl}&text=${encodeURIComponent(currentData.title)}`;
+    }
+  };
+
+  updateShareMetadata();
+
   function openModal() {
+    updateShareMetadata();
     shareModal?.classList.add('open');
   }
 
@@ -340,10 +449,11 @@ function initShareFunctionality() {
   openShareBtns.forEach(btn => {
     btn.addEventListener('click', async (e) => {
       e.preventDefault();
+      const currentData = getShareData();
       // Check if user is on mobile with native Web Share API
       if (navigator.share && window.innerWidth <= 768) {
         try {
-          await navigator.share(shareData);
+          await navigator.share(currentData);
           showToast('🙏 Thank you for sharing the Hawal Book!');
           return;
         } catch (err) {
@@ -370,12 +480,15 @@ function initShareFunctionality() {
 
   // Copy Link Button
   copyLinkBtn?.addEventListener('click', () => {
-    const textToCopy = `${shareData.title}\n${shareData.text}\n${shareData.url}`;
+    const currentData = getShareData();
+    const textToCopy = `${currentData.title}\n${currentData.text}\n${currentData.url}`;
     navigator.clipboard.writeText(textToCopy).then(() => {
       showToast('✓ Share link & message copied to clipboard!');
       copyLinkBtn.textContent = 'Copied!';
       setTimeout(() => {
-        copyLinkBtn.textContent = 'Copy';
+        copyLinkBtn.textContent = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[window.currentAppLang || 'mr']) 
+          ? TRANSLATIONS[window.currentAppLang || 'mr'].share_copy_btn 
+          : 'Copy Link';
       }, 2000);
     }).catch(() => {
       // Fallback
@@ -386,30 +499,6 @@ function initShareFunctionality() {
       }
     });
   });
-
-  // Setup social channel buttons
-  const encodedText = encodeURIComponent(`${shareData.title}\n\n${shareData.text}\n\n${shareData.url}`);
-  const encodedUrl = encodeURIComponent(shareData.url);
-
-  const whatsappBtn = document.getElementById('shareWhatsAppBtn');
-  if (whatsappBtn) {
-    whatsappBtn.href = `https://api.whatsapp.com/send?text=${encodedText}`;
-  }
-
-  const facebookBtn = document.getElementById('shareFacebookBtn');
-  if (facebookBtn) {
-    facebookBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
-  }
-
-  const twitterBtn = document.getElementById('shareTwitterBtn');
-  if (twitterBtn) {
-    twitterBtn.href = `https://twitter.com/intent/tweet?text=${encodedText}`;
-  }
-
-  const telegramBtn = document.getElementById('shareTelegramBtn');
-  if (telegramBtn) {
-    telegramBtn.href = `https://t.me/share/url?url=${encodedUrl}&text=${encodeURIComponent(shareData.title)}`;
-  }
 }
 
 /* ==========================================================================
