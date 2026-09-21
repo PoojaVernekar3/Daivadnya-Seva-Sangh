@@ -1304,23 +1304,19 @@ body {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  text-align: center;
   gap: 16px;
   font-size: 0.85rem;
   color: var(--text-muted);
 }
 
-.footer-official-tag {
-  font-weight: 600;
-  color: var(--gold-bright);
-}
-
 .footer-credits {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 8px;
-  justify-content: flex-end;
+  gap: 10px;
 }
 
 .footer-credits-sep {

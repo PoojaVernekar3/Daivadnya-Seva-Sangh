@@ -75,8 +75,7 @@ const TRANSLATIONS = {
     footer_link_share: "स्मरणिका शेअर करा",
     footer_office_title: "मंडळ कार्यालय",
     footer_office_address: "दैवज्ञ मंगल कार्यालय, महात्मा फुले रोड, शहापूर, बेळगांव - ५९०००३",
-    footer_office_bearers: "अध्यक्ष: श्री मनोज दा. कोळवेकर | कार्यवाह: श्री सुधीर शां. वेर्णेकर",
-    footer_official_tag: "Official Digital Souvenir • दैवज्ञ सेवा संघ, श्री गणेश उत्सव मंडळ, शहापूर-बेळगांव"
+    footer_office_bearers: "अध्यक्ष: श्री मनोज दा. कोळवेकर | कार्यवाह: श्री सुधीर शां. वेर्णेकर"
   },
 
   en: {
@@ -150,8 +149,7 @@ const TRANSLATIONS = {
     footer_link_share: "Share Hawal Book",
     footer_office_title: "Mandal Office",
     footer_office_address: "Daivadnya Mangala Karyalaya, Mahatma Phule Road, Shahapur, Belagavi - 590003",
-    footer_office_bearers: "President: Sri Manoj D. Kolvekar | Secretary: Sri Sudhir S. Vernekar",
-    footer_official_tag: "Official Digital Souvenir • Daivadnya Seva Sangh, Shree Ganesh Utsav Mandal, Shahapur-Belgaum"
+    footer_office_bearers: "President: Sri Manoj D. Kolvekar | Secretary: Sri Sudhir S. Vernekar"
   },
 
   kn: {
@@ -225,8 +223,7 @@ const TRANSLATIONS = {
     footer_link_share: "ಸ್ಮರಣಿಕೆ ಹಂಚಿಕೊಳ್ಳಿ",
     footer_office_title: "ಮಂಡಳ ಕಚೇರಿ",
     footer_office_address: "ದೈವಜ್ಞ ಮಂಗಳ ಕಾರ್ಯಾಲಯ, ಮಹಾತ್ಮ ಫುಲೆ ರಸ್ತೆ, ಶಹಾಪುರ, ಬೆಳಗಾವಿ - ೫೯೦೦೦೩",
-    footer_office_bearers: "ಅಧ್ಯಕ್ಷರು: ಶ್ರೀ ಮನೋಜ ದಾ. ಕೊಳವೇಕರ | ಕಾರ್ಯದರ್ಶಿ: ಶ್ರೀ ಸುಧೀರ ಶಾ. ವೆರ್ಣೇಕರ",
-    footer_official_tag: "Official Digital Souvenir • ದೈವಜ್ಞ ಸೇವಾ ಸಂಘ, ಶ್ರೀ ಗಣೇಶ ಉತ್ಸವ ಮಂಡಳ, ಶಹಾಪುರ-ಬೆಳಗಾವಿ"
+    footer_office_bearers: "ಅಧ್ಯಕ್ಷರು: ಶ್ರೀ ಮನೋಜ ದಾ. ಕೊಳವೇಕರ | ಕಾರ್ಯದರ್ಶಿ: ಶ್ರೀ ಸುಧೀರ ಶಾ. ವೆರ್ಣೇಕರ"
   }
 };
 
