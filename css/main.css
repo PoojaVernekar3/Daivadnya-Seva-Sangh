@@ -1315,6 +1315,47 @@ body {
   color: var(--gold-bright);
 }
 
+.footer-credits {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.footer-credits-sep {
+  color: var(--border-gold);
+  opacity: 0.6;
+  font-size: 0.85rem;
+}
+
+.trishaki-link {
+  color: var(--gold-bright);
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+  border-bottom: 1px dotted rgba(255, 215, 0, 0.4);
+  display: inline-block;
+}
+
+.trishaki-link:hover,
+.trishaki-link:focus {
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+  transform: translateY(-1px);
+}
+
+.drawer-credits {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
 /* ==========================================================================
    HAMBURGER BUTTON & MOBILE NAVIGATION DRAWER
    ========================================================================== */
@@ -2008,6 +2049,18 @@ body {
     flex-direction: column;
     text-align: center;
     gap: 10px;
+  }
+
+  .footer-credits {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-align: center;
+  }
+
+  .footer-credits-sep {
+    display: none;
   }
 }
 
