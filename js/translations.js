@@ -67,7 +67,7 @@ const TRANSLATIONS = {
 
     footer_mandal_name: "दैवज्ञ सेवा संघ, श्री गणेश उत्सव मंडळ",
     footer_mandal_location: "शहापूर - बेळगांव",
-    footer_desc: "शहापूर - बेळगांव. संस्कृती, कला, गणेशोत्सव परंपरा जतन करण्यासाठी आणि शहापूर, वडगाव, टिळकवाडी व बेळगाव परिसरातील समाजाच्या कल्याणासाठी कार्यरत.",
+    footer_desc: "पिढ्यानपिढ्या, श्री गणेशोत्सवाचा हा पवित्र सण आपल्या समाजाला भक्ती आणि उत्साहाने एकत्र आणत आला आहे. या उत्सवाच्या माध्यमातून, आपल्या सांस्कृतिक परंपरा जतन करणे, समाजात एकता वाढवणे आणि प्रत्येकासाठी एक आनंददायी आध्यात्मिक अनुभव निर्माण करणे हाच आमचा ध्यास आहे.",
     footer_mantra: "|| श्री गणेशाय नमः • गणपती बाप्पा मोरया ||",
     footer_quick_links_title: "महत्त्वाच्या लिंक्स",
     footer_link_reader: "Digital Hawal Book (१९६ पाने)",
@@ -142,7 +142,7 @@ const TRANSLATIONS = {
 
     footer_mandal_name: "Daivadnya Seva Sangh, Shree Ganesh Utsav Mandal",
     footer_mandal_location: "Shahapur - Belgaum",
-    footer_desc: "Established to preserve cultural roots, celebrate the sacred Ganesh festival, and advance community welfare and education across Shahapur, Vadgaon, Tilakwadi and Belgaum.",
+    footer_desc: "For generations, the sacred festival of Shree Ganesh has brought our community together in devotion and celebration. Through this Utsav, we strive to preserve our cultural traditions, encourage community unity, and create a joyful spiritual experience for everyone.",
     footer_mantra: "|| Shree Ganeshay Namah • Ganpati Bappa Morya ||",
     footer_quick_links_title: "Quick Links",
     footer_link_reader: "Digital Hawal Book (196 P.)",
@@ -217,7 +217,7 @@ const TRANSLATIONS = {
 
     footer_mandal_name: "ದೈವಜ್ಞ ಸೇವಾ ಸಂಘ, ಶ್ರೀ ಗಣೇಶ ಉತ್ಸವ ಮಂಡಳ",
     footer_mandal_location: "ಶಹಾಪುರ - ಬೆಳಗಾವಿ",
-    footer_desc: "ಸಂಸ್ಕೃತಿ, ಕಲೆ, ಗಣೇಶೋತ್ಸವ ಪರಂಪರೆಯನ್ನು ಸಂರಕ್ಷಿಸಲು ಮತ್ತು ಶಹಾಪುರ, ವಡಗಾಂವ, ತಿಲಕವಾಡಿ ಮತ್ತು ಬೆಳಗಾವಿ ಪ್ರದೇಶದ ಸಮಾಜದ ಕಲ್ಯಾಣಕ್ಕಾಗಿ ಸ್ಥಾಪಿಸಲಾಗಿದೆ.",
+    footer_desc: "ತಲೆಮಾರುಗಳಿಂದ, ಶ್ರೀ ಗಣೇಶನ ಪವಿತ್ರ ಹಬ್ಬವು ನಮ್ಮ ಸಮುದಾಯವನ್ನು ಭಕ್ತಿ ಮತ್ತು ಸಂಭ್ರಮದಿಂದ ಒಗ್ಗೂಡಿಸುತ್ತಾ ಬಂದಿದೆ. ಈ ಉತ್ಸವದ ಮೂಲಕ, ನಮ್ಮ ಸಾಂಸ್ಕೃತಿಕ ಪರಂಪರೆಯನ್ನು ಸಂರಕ್ಷಿಸಲು, ಸಮುದಾಯದ ಏಕತೆಯನ್ನು ಬೆಳೆಸಲು ಮತ್ತು ಎಲ್ಲರಿಗೂ ಆನಂದದಾಯಕ ಆಧ್ಯಾತ್ಮಿಕ ಅನುಭವವನ್ನು ನೀಡಲು ನಾವು ಶ್ರಮಿಸುತ್ತಿದ್ದೇವೆ.",
     footer_mantra: "|| ಶ್ರೀ ಗಣೇಶಾಯ ನಮಃ • ಗಣಪತಿ ಬಪ್ಪಾ ಮೋರಯಾ ||",
     footer_quick_links_title: "ಮುಖ್ಯ ಲಿಂಕ್‌ಗಳು",
     footer_link_reader: "Digital Hawal Book (೧೯೬ ಪುಟಗಳು)",
