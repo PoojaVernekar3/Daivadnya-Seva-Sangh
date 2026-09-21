@@ -6,7 +6,7 @@
 const TRANSLATIONS = {
   mr: {
     header_mandal_name: "दैवज्ञ सेवा संघ, श्री गणेश उत्सव मंडळ",
-    header_mandal_sub: "शहापूर - बेळगांव • ४७ वा अहवाल २०२६-२७ (196 Pages)",
+    header_mandal_sub: "शहापूर - बेळगांव • ४७ वा अहवाल २०२६-२७",
     nav_reader: "वाचन / Reader",
     nav_download: "डाउनलोड PDF",
     btn_share: "शेअर करा",
@@ -81,7 +81,7 @@ const TRANSLATIONS = {
 
   en: {
     header_mandal_name: "Daivadnya Seva Sangh, Shree Ganesh Utsav Mandal",
-    header_mandal_sub: "Shahapur - Belgaum • 47th Annual Souvenir 2026-27 (196 Pages)",
+    header_mandal_sub: "Shahapur - Belgaum • 47th Annual Souvenir 2026-27",
     nav_reader: "Hawal Reader",
     nav_download: "Download PDF",
     btn_share: "Share",
@@ -156,7 +156,7 @@ const TRANSLATIONS = {
 
   kn: {
     header_mandal_name: "ದೈವಜ್ಞ ಸೇವಾ ಸಂಘ, ಶ್ರೀ ಗಣೇಶ ಉತ್ಸವ ಮಂಡಳ",
-    header_mandal_sub: "ಶಹಾಪುರ - ಬೆಳಗಾವಿ • ೪೭ ನೇ ವಾರ್ಷಿಕ ಅಹವಾಲು ೨೦೨೬-೨೭ (196 Pages)",
+    header_mandal_sub: "ಶಹಾಪುರ - ಬೆಳಗಾವಿ • ೪೭ ನೇ ವಾರ್ಷಿಕ ಅಹವಾಲು ೨೦೨೬-೨೭",
     nav_reader: "ಓದಿ / Reader",
     nav_download: "ಡೌನ್‌ಲೋಡ್ PDF",
     btn_share: "ಹಂಚಿಕೊಳ್ಳಿ",
